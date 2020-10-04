@@ -1,0 +1,120 @@
+# The start line takes the following form:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+#
+
+# Console.log
+snippet clg "console.log" b
+console.log("${1:key} ", ${2:value});
+endsnippet
+
+# If
+snippet if "if" b
+if (${1:condition}) {
+	${0}
+}
+endsnippet
+
+# If else
+snippet ife "if else" b
+if (${1:condition}) {
+	${2}
+} else {
+	${3}
+}
+endsnippet
+
+# Switch
+snippet switch "switch" b
+switch (${1:condition}) {
+	case ${2:when}:
+		${0}
+		break;
+}
+endsnippet
+
+# Try catch 
+snippet tc "try catch" b
+try {
+	${1}
+} catch (${2:err}) {
+	${0}
+}
+endsnippet
+
+# Try finally
+snippet tf "try final" b
+try {
+	${1}
+} finally {
+	${0}
+}
+endsnippet
+
+# try catch finally
+snippet tcf "try catch final" b
+try {
+	${1}
+} catch (${2:err}) {
+	${3}
+} finally {
+	${0}
+}
+endsnippet
+
+# function 
+snippet fun "function" b
+function ${1:name} (${2}) {
+	${3}
+}
+endsnippet
+
+# arror function 
+snippet afn "arrow function" b
+(${1}) => ${2}
+endsnippet
+
+# for
+snippet for "for" b
+for (let ${1:index} = 0; ${1:index} < ${2:length}; ${1:index}++) {
+	${0}
+}
+endsnippet
+
+# forEach
+snippet foreach "forEach" b
+${1:array}.forEach((${2:item}) => {
+	${0}
+})
+endsnippet
+
+# while
+snippet while "while" b
+while (${1:condition}) {
+	${0}
+}
+endsnippet
+
+
